@@ -2,8 +2,8 @@
 {
     public class SliceSample
     {
-        float[] buffer;
-        SliceType sliceType;
-        Notes note;
+        public float[] buffer;
+        public SliceType sliceType;
+        public Notes note;
     }
 }

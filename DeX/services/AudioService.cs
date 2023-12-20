@@ -3,7 +3,7 @@ using NAudio.Wave;
 
 namespace DeX.services
 {
-    public class AudioService
+    public static class AudioService
     {
         public static float[] ReadMp3(string path)
         {
