@@ -5,13 +5,18 @@ namespace DeX.services
 {
     public static class AudioService
     {
-        public static float[] ReadMp3(string path)
+        public static int[] ReadMp3(string path)
         {
-            var reader = new Mp3FileReader(path);
+            Mp3FileReader reader = new Mp3FileReader(path);
+            //exctrac pcm data from mp3 stream
+            var buffer = new List<int>();
+            var readBuffer = new byte[reader.WaveFormat.AverageBytesPerSecond];
+            
+            Mp3WaveFormat waveFormat = reader.Mp3WaveFormat;
             var sampleProvider = reader.ToSampleProvider();
-            var buffer = new float[reader.WaveFormat.SampleRate];
-            sampleProvider.Read(buffer, 0, buffer.Length);
-            return buffer;
+            var sampleBuffer = new float[reader.WaveFormat.SampleRate * reader.WaveFormat.Channels];
+            
+            
         }
         
         public static void WriteMp3(string path, float[] buffer)

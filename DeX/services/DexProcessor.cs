@@ -21,7 +21,7 @@ namespace DeX.services
             
             var filtered = Filter(_audioBuffer);
             var threshold = GetThreshold(filtered);
-
+            SearchAndCut(filtered, _audioBuffer, threshold);
         }
         
         private void SearchAndCut(float[] filtered, float[] buffer, float threshold)
